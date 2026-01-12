@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from 'next/link';
 import "./globals.css";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <nav className=" w-full bg-teal-600 text-[40px] flex justify-center items-center gap-2.5">
+          <Link href='/'>Home</Link>
+          <Link href='/posts'>Posts</Link>
+          <Link href='/articles'>Articles</Link>
+        </nav>
         {children}
       </body>
     </html>
